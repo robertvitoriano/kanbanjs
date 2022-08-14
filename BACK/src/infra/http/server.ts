@@ -4,12 +4,12 @@ import db from './../../../models'
 dotenv.config();
 
 const app = express()
+const port = process.env.NODE_LOCAL_PORT || 4444
 
 app.use(json())
 
-//@ts-ignore
 db.sequelize.sync({force:true}).then(()=>{
-    app.listen(process.env.NODE_LOCAL_PORT, async() => {
-        console.log('My app is running');
+    app.listen(port, async() => {
+        console.log(`My app is running on ${port}`);
     })
 })
