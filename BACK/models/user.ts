@@ -52,7 +52,7 @@ export default (sequelize:any, DataTypes:any) => {
     }
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'user',
   });
   return User;
 };
