@@ -11,7 +11,7 @@ type CardAttributes = {
   lista:string
 };
 
-module.exports = (sequelize: any, DataTypes: any) => {
+export default (sequelize: any, DataTypes: any) => {
   class Card extends Model<CardAttributes> implements CardAttributes{
     id!: string;
     titulo!: string;
