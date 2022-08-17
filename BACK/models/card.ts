@@ -38,8 +38,9 @@ export default (sequelize: any, DataTypes: any) => {
       allowNull: false
     },
     conteudo: {
-      type:DataTypes.STRING,
-      allowNull: false
+      type:DataTypes.STRING(800),
+      allowNull: false,
+
     },
     lista: {
       type:DataTypes.STRING,
