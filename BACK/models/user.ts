@@ -1,7 +1,7 @@
 'use strict';
 import { Model } from 'sequelize';
 
-type UserTributes = {
+export type UserTributes = {
   id:string
   name:string
   password:string

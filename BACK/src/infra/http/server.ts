@@ -1,8 +1,6 @@
 import express, { json } from 'express';
 import dotenv from "dotenv"
 import db from './../../../models'
-import { users } from './../../../seeders/users'
-import { cards } from './../../../seeders/cards'
 dotenv.config();
 
 const app = express()
