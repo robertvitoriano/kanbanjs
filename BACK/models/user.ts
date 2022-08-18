@@ -2,9 +2,9 @@
 import { Model } from 'sequelize';
 
 export type UserTributes = {
-  id:string
+  id?:string
   name:string
-  password:string
+  password?:string
   email:string
   username:string
 }
