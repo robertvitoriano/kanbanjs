@@ -12,7 +12,10 @@ export class LoginUseCase {
     const isPasswordValid = await compare(data.password, String(user.password));
     if (!isPasswordValid) throw new Error("Wrong Credentials");
     const token = sign(String(user.id), String(process.env.JWT_SECRET));
-    delete user.password;
-    return {user:user, token};
+    return {user:{
+      username: user.username,
+      email: user.email,
+      name: user.name
+    }, token};
   }
 }
