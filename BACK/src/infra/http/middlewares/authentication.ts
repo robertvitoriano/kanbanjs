@@ -8,7 +8,6 @@ interface IPayload {
 export async function authentication(req: Request, res: Response, next: NextFunction): Promise<void> {
 
   if (!req.headers.authorization) throw new Error('token is missing');
-
   const token = req.headers.authorization.split(' ')[1];
 
   try {
