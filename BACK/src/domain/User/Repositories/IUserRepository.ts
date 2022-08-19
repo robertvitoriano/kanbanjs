@@ -3,6 +3,6 @@ import { ICreateUserDTO } from "../DTOS/ICreateUserDTO"
 
 export interface IUserRepository {
   createUser(data:ICreateUserDTO):Promise<User>
-  findByUser(userName:string, email:string):Promise<User>
+  findUser(userName:string, email?:string):Promise<User>
 
 }
