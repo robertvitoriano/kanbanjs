@@ -6,9 +6,9 @@ export class CreateUserController {
      const createUserUseCase =  createUserUseCaseFactory();
      const user = await createUserUseCase.execute(request.body)
      return response.json(user)
-    }catch(error){
+    }catch(error:any){
       console.error(error)
-      return response.status(400).json(error)
+      return response.status(400).json({error:error.message})
     }
   }
 }
