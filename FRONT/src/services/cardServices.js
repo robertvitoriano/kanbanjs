@@ -1,7 +1,10 @@
-const AUTH_URL = 'http://localhost:5000/login';
-const CARD_URL = 'http://localhost:5000/cards';
+const AUTH_URL = 'http://localhost:4444/users/login';
+const CARD_URL = 'http://localhost:4444/cards';
 
-const CREDENTIAL = { login: 'login', senha: 'senha@123' };
+const CREDENTIAL = { 
+    "username": "letscode",
+    "password": "lets@123"
+   };
 
 const DEFAULT_HEADERS = {
     'Accept': 'application/json',
@@ -20,8 +23,8 @@ const useCardService = () => {
             headers: DEFAULT_HEADERS,
         })
             .then(toJson)
-            .then(token => `Bearer ${token}`)
-            .then(token => ({ Authorization: token }))
+            .then(response => response.token)
+            .then(token => ({ Authorization: `Bearer ${token}` }))
             .catch(console.error);
     };
 
