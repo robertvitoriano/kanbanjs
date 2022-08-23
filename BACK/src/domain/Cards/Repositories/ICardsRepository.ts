@@ -5,5 +5,6 @@ export interface ICardsRepository {
   createCard(data:ICreateCardDTO):Promise<Card>
   getCards():Promise<Card[]>
   findCardById(id:string):Promise<Card>
+  updateCard(data:ICreateCardDTO, cardId:string):Promise<Card>
 
 }

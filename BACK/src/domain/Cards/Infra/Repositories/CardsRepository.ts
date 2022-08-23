@@ -5,6 +5,13 @@ import db from './../../../../../models'
 import { v4 as uuid } from 'uuid'
 
 export class CardsRepository implements ICardsRepository {
+  updateCard(data: ICreateCardDTO, cardId:string): Promise<Card> {
+    return db.card.update(data,{
+      where:{
+        id:cardId
+      }
+    })
+  }
 
   createCard(data: ICreateCardDTO): Promise<Card> {
     return db.card.create({
