@@ -11,13 +11,12 @@ export async function authentication(req: Request, res: Response, next: NextFunc
   const token = req.headers.authorization.split(' ')[1];
 
   try {
-    const { sub: userId } = verify(token, 'secret') as IPayload;
+    const userId = verify(token, String(process.env.JWT_SECRET)) as IPayload;
     if (!userId) throw new Error('token is invalid');
     const userRepository = new UserRepository();
-    const user = await userRepository.findUserById(userId)
+    const user = await userRepository.findUserById(String(userId))
     if (!user) throw new Error('User not found');
-    req.user = {id:userId, username:user.username, email:user.email, name:user.name};
-
+    req.user = {id:String(userId), username:user.username, email:user.email, name:user.name};
     next();
 
   } catch(error) {
