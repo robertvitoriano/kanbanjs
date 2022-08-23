@@ -45,7 +45,7 @@ lista: string
 ```
 (POST)      http://0.0.0.0:5000/login/ x
 
-(GET)       http://0.0.0.0:5000/cards/ 
+(GET)       http://0.0.0.0:5000/cards/ x
 (POST)      http://0.0.0.0:5000/cards/ x
 (PUT)       http://0.0.0.0:5000/cards/{id}
 (DELETE)    http://0.0.0.0:5000/cards/{id}

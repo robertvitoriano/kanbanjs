@@ -3,7 +3,7 @@ import { ICreateCardDTO } from "../DTOS/ICreateCardDTO"
 
 export interface ICardsRepository {
   createCard(data:ICreateCardDTO):Promise<Card>
-  findCard(title:string, content?:string):Promise<Card>
+  getCards():Promise<Card[]>
   findCardById(id:string):Promise<Card>
 
 }
