@@ -4,7 +4,7 @@ import {
 } from 'sequelize';
 
 
-type CardAttributes = {
+export type CardAttributes = {
   id: string,
   titulo: string,
   conteudo:string,
