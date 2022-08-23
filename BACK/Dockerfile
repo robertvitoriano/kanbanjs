@@ -1,5 +1,5 @@
 FROM node:14
-WORKDIR /.
+WORKDIR /usr/app
 COPY package.json .
 RUN yarn
 COPY . .
