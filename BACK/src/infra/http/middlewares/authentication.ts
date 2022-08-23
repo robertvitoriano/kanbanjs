@@ -20,8 +20,9 @@ export async function authentication(req: Request, res: Response, next: NextFunc
 
     next();
 
-  } catch {
-    throw new Error('Invalid Token');
+  } catch(error) {
+    console.error(error)
+    res.status(401).send("Forbidden")
   }
 
 }

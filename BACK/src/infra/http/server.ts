@@ -14,7 +14,7 @@ app.get('/',(request:Request, response:Response)=>{
     message:"My app is Running"
   })
 })
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
     app.listen(port, async () => {
         console.log(`My app is running on ${port}`);
         })

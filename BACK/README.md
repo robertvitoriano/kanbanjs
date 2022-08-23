@@ -43,10 +43,10 @@ lista: string
 5. Os entrypoints da aplicação devem usar a porta 5000 e ser:
 
 ```
-(POST)      http://0.0.0.0:5000/login/
+(POST)      http://0.0.0.0:5000/login/ x
 
-(GET)       http://0.0.0.0:5000/cards/
-(POST)      http://0.0.0.0:5000/cards/
+(GET)       http://0.0.0.0:5000/cards/ 
+(POST)      http://0.0.0.0:5000/cards/ x
 (PUT)       http://0.0.0.0:5000/cards/{id}
 (DELETE)    http://0.0.0.0:5000/cards/{id}
 ```
