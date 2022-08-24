@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import config from './../config/config'
+import { Umzug, SequelizeStorage } from 'umzug'
 const Sequelize = require('sequelize');
 
 const basename = path.basename(__filename);
@@ -34,5 +35,29 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+const umzug = new Umzug({
+  migrations: { glob: './migrations/*.js',         
+  resolve: ({ name, path, context }) => {
+    const migration = require(path || '')
+    return {
+        name,
+        up: async () => migration.up(context, Sequelize),
+        down: async () => migration.down(context, Sequelize),
+    }
+}, },
+  context: sequelize.getQueryInterface(),
+  storage: new SequelizeStorage({ sequelize }),
+  logger: console,
+  
+});
+
+
+(async () => {
+  // Checks migrations and run them if they are not already applied. To keep
+  // track of the executed migrations, a table (and sequelize model) called SequelizeMeta
+  // will be automatically created (if it doesn't exist already) and parsed.
+  await umzug.up();
+})();
 
 export default db;

@@ -43,7 +43,7 @@ export default (sequelize: any, DataTypes: any) => {
 
     },
     lista: {
-      type:DataTypes.STRING,
+      type:DataTypes.ENUM("ToDo","Doing","Done", "Blocked"),
       allowNull: false
     }
   }, {
