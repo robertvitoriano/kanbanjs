@@ -9,7 +9,7 @@ export class UserRepository implements IUserRepository {
   findUserById(id: string): Promise<UserTributes> {
     return db.user.findOne({ where: { id } })
   }
-  findUser(userName: string, email: string): Promise<UserTributes> {
+  findUser(userName?: string, email?: string): Promise<UserTributes> {
     if(userName && email) return db.user.findOne({ where: { username: userName, email: email } })
     if(userName) return db.user.findOne({ where: { username: userName } })
     return db.user.findOne({ where: { email: email } })

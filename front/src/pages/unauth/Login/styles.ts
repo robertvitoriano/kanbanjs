@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import MUIInput from '@mui/material/Input';
+//ts-ignore
+import {ArrowLeftOutlined} from '@ant-design/icons';
 
 export const Wrapper = styled.div`
   background-color: gray;
@@ -17,7 +19,7 @@ export const Container = styled.div`
  align-items:center;
  width:800px;
 `
-export const Content = styled.div`
+export const Content = styled.form`
   background-color: white;
   height: 60%;
   width:60%;
@@ -36,14 +38,16 @@ export const Content = styled.div`
   }
   `
 
-export const Button = styled.div`
+export const Button = styled.button`
   border-radius: 1rem;
   padding-top: 15px;
   padding-bottom: 15px;
   width:9rem;
   text-align:center;
   font-size: 22px;
-
+  &:hover{
+    cursor:pointer;
+  }
 
 `
 
@@ -88,4 +92,20 @@ export const Footer = styled.span``
 export const HeartIcon = styled.span`
   font-size: 30px;
   color:purple;
+`
+export const ReturnButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ReturnButtonIcon = styled(ArrowLeftOutlined)``
+
+export const ReturnButton = styled.div`
+ color:black;
+ &:hover{
+   text-decoration: underline;
+   color:black;
+   cursor:pointer;
+ }
 `
