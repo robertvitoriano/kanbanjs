@@ -4,3 +4,5 @@
 # production
 /build
 
+yarn-error.log
+yarn.lock
