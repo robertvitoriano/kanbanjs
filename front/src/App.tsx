@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import {getCards} from './services/cardServices'
 function App() {
+  (async() =>await getCards())()
   return (
     <div className="App">
       <header className="App-header">
