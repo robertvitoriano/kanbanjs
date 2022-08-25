@@ -1,16 +1,14 @@
 import styled, {css} from 'styled-components'
 import MUIInput from '@mui/material/Input';
-//ts-ignore
-import {ArrowLeftOutlined} from '@ant-design/icons';
 
 export const Wrapper = styled.div`
-  background-color: gray;
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 80%;
+  position: relative;
 `
 export const Container = styled.div`
  height: 100vh;
@@ -19,109 +17,23 @@ export const Container = styled.div`
  align-items:center;
  width:800px;
 `
-export const Content = styled.form`
-  background-color: white;
-  height: 90%;
-  width:60%;
-  border-radius: 15px;
-  border:solid 3px black;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  padding:0.5rem;
-
-  @media (max-width: 600px) {
-  height: 70%;
-  width:90%;
-  }
-  `
-
-export const Button = styled.button`
-  border-radius: 1rem;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width:9rem;
-  text-align:center;
-  font-size: 22px;
-  &:hover{
-    cursor:pointer;
-  }
-
-  @media (max-width: 1200px) {
-  border-radius: 1rem;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width:7rem;
-  text-align:center;
-  font-size: 15px; 
- }
- @media (max-width: 600px) {
-  border-radius: 1rem;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width:6rem;
-  text-align:center;
-  font-size: 22px;
-  }
-
-`
-
-export const LoginButton =  styled(Button)`
+export const Header = styled.div`
+  width: 100vw;
   background-color: gray;
-`
-
-export const SignInButton = styled(Button)`
-  background-color: aqua;
-`
-
-export const ButtonsContainer = styled.div`
+  position: absolute;
+  top:0;
   display: flex;
-  width: 80%;
-  justify-content: space-around;
-  align-items: center;
-  height: 30%;
-  flex-direction: column;
+  justify-content: flex-end;
 `
+export const LogoutButton = styled.div`
+  height:100%;
+  padding:20px;
+  background: black;
+  color:gray;
 
-export const Input = styled(MUIInput)`
-  height: 60px;
-  width:80%;
-`
-
-export const InputsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100px;
-  width: 100%;
-`
-export const Title = styled.h1`
-  text-align: center;
-`
-
-export const KanbanLogo = styled.img``
-
-export const Footer = styled.span``
-
-export const HeartIcon = styled.span`
-  font-size: 30px;
-  color:purple;
-`
-export const ReturnButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-export const ReturnButtonIcon = styled(ArrowLeftOutlined)``
-
-export const ReturnButton = styled.div`
- color:black;
- &:hover{
-   text-decoration: underline;
-   color:black;
-   cursor:pointer;
- }
+  &:hover{
+    opacity: 50%;
+    cursor: pointer;
+    color:white;
+  }
 `

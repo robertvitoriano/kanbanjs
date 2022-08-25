@@ -1,9 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import { Wrapper, Header, LogoutButton } from './styles'
+import { useNavigate } from 'react-router-dom'
 
-import kanbanLogoSrc from './../../../assets/kanbanLogo.png'
 export const Main = () => {
+  const navigate = useNavigate();
+  const handleLogout = () =>{
+    for( const key of Object.keys(localStorage)){
+      localStorage.removeItem(key)
+    }
+    navigate("/")
 
+  }
   return (
-    <h1>Hello World</h1>
+    <>
+      <Wrapper>
+        <Header>
+          <LogoutButton onClick={handleLogout}>
+            Logout
+          </LogoutButton>
+        </Header>
+      </Wrapper>
+    </>
   )
 }
