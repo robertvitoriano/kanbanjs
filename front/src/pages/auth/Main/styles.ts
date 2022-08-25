@@ -37,7 +37,7 @@ export const Content = styled.form`
   }
   `
 
-export const Button = styled.div`
+export const Button = styled.button`
   border-radius: 1rem;
   padding-top: 15px;
   padding-bottom: 15px;

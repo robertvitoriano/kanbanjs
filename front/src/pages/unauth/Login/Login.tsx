@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, } from 'react'
+import { useNavigate } from "react-router-dom"
 import {
   Container,
   Wrapper,
@@ -27,6 +28,8 @@ export const Login = () => {
   const [name, setName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log(name)
     console.log(email)
@@ -43,6 +46,10 @@ export const Login = () => {
     const userService = new UserService()
     setIsLoading(true)
     await userService.login(username, password)
+    navigate({
+      pathname:'/home'
+    })
+
   }
 
   const handleSignIn = async () => {
@@ -54,6 +61,7 @@ export const Login = () => {
       password,
       username
     })
+    navigate('/')
   }
   return (
     <Wrapper>
@@ -68,7 +76,7 @@ export const Login = () => {
                 <Input placeholder='enter your password' required value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
               </InputsContainer>
               <ButtonsContainer>
-                <LoginButton onClick={handleLogin} type="submit">Login</LoginButton>
+                <LoginButton onClick={handleLogin} >Login</LoginButton>
                 <SignInButton onClick={handleSignInFormChange}>Sign In</SignInButton>
               </ButtonsContainer>
             </> : isSigningIn ?
@@ -80,7 +88,7 @@ export const Login = () => {
                   <Input placeholder='enter your password' required value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                 </InputsContainer>
                 <ButtonsContainer>
-                  <SignInButton onClick={handleSignIn} type="submit">Sign In</SignInButton>
+                  <SignInButton onClick={handleSignIn} >Sign In</SignInButton>
                   <ReturnButtonContainer>
                     <ReturnButtonIcon src=""></ReturnButtonIcon>
                     <ReturnButton onClick={handleReturnButton}>Return</ReturnButton>
