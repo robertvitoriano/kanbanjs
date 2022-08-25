@@ -1,5 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Wrapper, Content, Input, InputsContainer, Title, KanbanLogo, LoginButton, SignInButton, ButtonsContainer, Footer, HeartIcon, ReturnButtonContainer, ReturnButtonIcon, ReturnButton } from './styles'
+import {
+  Container,
+  Wrapper,
+  Content,
+  Input,
+  InputsContainer,
+  Title,
+  KanbanLogo,
+  LoginButton,
+  SignInButton,
+  ButtonsContainer,
+  Footer,
+  HeartIcon,
+  ReturnButtonContainer,
+  ReturnButtonIcon,
+  ReturnButton,
+} from './styles'
 import kanbanLogoSrc from './../../../assets/kanbanLogo.png'
 import { UserService } from '../../../services/userService'
 export const Login = () => {
@@ -9,26 +25,29 @@ export const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(()=>{
-   console.log(name)
-   console.log(email) 
-  },[name, email])
-  const handleReturnButton = () =>{
+  useEffect(() => {
+    console.log(name)
+    console.log(email)
+  }, [name, email])
+  const handleReturnButton = () => {
     setIsLoggingIn(true)
     setIsSigningIn(false)
   }
-  const handleSignInFormChange = () =>{
+  const handleSignInFormChange = () => {
     setIsLoggingIn(false)
     setIsSigningIn(true)
   }
-  const handleLogin = async() =>{
+  const handleLogin = async () => {
     const userService = new UserService()
+    setIsLoading(true)
     await userService.login(username, password)
   }
 
-  const handleSignIn = async () =>{
+  const handleSignIn = async () => {
     const userService = new UserService()
+    setIsLoading(true)
     await userService.signUp({
       email,
       name,
@@ -45,8 +64,8 @@ export const Login = () => {
           {isLoggingIn ?
             <>
               <InputsContainer>
-              <Input placeholder='enter your username' required value = {username} onChange={(e)=>setUsername(e.target.value)}/>
-              <Input placeholder='enter your password' required value={password} type="password" onChange={(e)=>setPassword(e.target.value)}/>
+                <Input placeholder='enter your username' required value={username} onChange={(e) => setUsername(e.target.value)} />
+                <Input placeholder='enter your password' required value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
               </InputsContainer>
               <ButtonsContainer>
                 <LoginButton onClick={handleLogin} type="submit">Login</LoginButton>
@@ -55,22 +74,24 @@ export const Login = () => {
             </> : isSigningIn ?
               <>
                 <InputsContainer>
-                  <Input placeholder='enter your name' required value={name} onChange={(e)=>setName(e.target.value)} />
-                  <Input placeholder='enter your username' required value = {username} onChange={(e)=>setUsername(e.target.value)}/>
-                  <Input placeholder='enter your email' required value={email} onChange={(e)=>setEmail(e.target.value)} />
-                  <Input placeholder='enter your password' required value={password} type="password" onChange={(e)=>setPassword(e.target.value)}/>
+                  <Input placeholder='enter your name' required value={name} onChange={(e) => setName(e.target.value)} />
+                  <Input placeholder='enter your username' required value={username} onChange={(e) => setUsername(e.target.value)} />
+                  <Input placeholder='enter your email' required value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Input placeholder='enter your password' required value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                 </InputsContainer>
                 <ButtonsContainer>
                   <SignInButton onClick={handleSignIn} type="submit">Sign In</SignInButton>
                   <ReturnButtonContainer>
-                      <ReturnButtonIcon src=""></ReturnButtonIcon>
-                      <ReturnButton onClick={handleReturnButton}>Return</ReturnButton>
-                    </ReturnButtonContainer>
+                    <ReturnButtonIcon src=""></ReturnButtonIcon>
+                    <ReturnButton onClick={handleReturnButton}>Return</ReturnButton>
+                  </ReturnButtonContainer>
                 </ButtonsContainer>
               </> : ''}
           <Footer>Made with <HeartIcon>&hearts;</HeartIcon> by Robert Vitoriano</Footer>
+
         </Content>
       </Container>
+
     </Wrapper>
   )
 }
