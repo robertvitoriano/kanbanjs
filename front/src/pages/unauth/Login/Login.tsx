@@ -46,9 +46,8 @@ export const Login = () => {
     const userService = new UserService()
     setIsLoading(true)
     await userService.login(username, password)
-    navigate({
-      pathname:'/home'
-    })
+    window.location.href =  '/'
+
 
   }
 
