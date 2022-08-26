@@ -12,6 +12,16 @@ export const Main = () => {
     window.location.href = '/'
 
   }
+  const cardsMock = [
+    {
+      title: "teste cards",
+      content: "My content"
+    },
+    {
+      title: "teste cards",
+      content: "My content"
+    }
+  ]
   return (
     <>
       <Wrapper>
@@ -22,10 +32,10 @@ export const Main = () => {
         </Header>
         <Container >
           <Content>
-            <List/>
-            <List/>
-            <List/>
-            <List/>
+            <List title="To do" cards={cardsMock}/>
+            <List title="Doing" cards={cardsMock} />
+            <List title="Done" cards={cardsMock} />
+            <List title="Blocked" cards={cardsMock} />
           </Content>
         </Container>
       </Wrapper>

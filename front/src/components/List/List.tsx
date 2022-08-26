@@ -1,8 +1,18 @@
-import {Container} from './styles'
-export const List = () =>{
+import { Card } from './../Card'
+import {Container, Header} from './styles'
+type ICard = {
+  title:string
+  content:string
+}
+type Props = {
+  title:string,
+  cards: ICard[]
+}
+export const List = ({title, cards}:Props) =>{
   return(
     <Container>
-      <h1>Hello World</h1>
+      <Header>{title}</Header>
+      {cards.map(({title, content})=><Card title={title} content={content}/>)}
     </Container>
   )
 }

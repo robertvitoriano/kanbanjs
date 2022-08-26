@@ -19,7 +19,6 @@ export const Content = styled.div`
 `
 export const Container = styled.div`
   width:100vw;
-  background-color: bisque;
   height: 92vh;
   display: flex;
   justify-content: center;
