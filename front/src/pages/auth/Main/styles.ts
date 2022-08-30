@@ -47,3 +47,7 @@ export const LogoutButton = styled.div`
     color:white;
   }
 `
+export const CardCreationForm = styled.div``
+export const CreationFormInput = styled.div``
+export const CreationFormSelect = styled.select``
+export const CreationFormButton =  styled.div``
