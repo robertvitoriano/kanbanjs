@@ -7,7 +7,7 @@ interface ISignUpInfo {
   name: string
 }
 export class UserService {
-  async login(username: string, password: string) {
+  async login(username: string, password: string): Promise<string | undefined>{
     try {
       const response = await api.post('/users/login', {
         username,
@@ -15,6 +15,7 @@ export class UserService {
       });
       const token = response.data.token
       localStorage.setItem('token', token)
+      return token
     } catch (error) {
       console.error(error)
     }

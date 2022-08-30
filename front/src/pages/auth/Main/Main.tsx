@@ -1,9 +1,18 @@
-import { Wrapper, Header, LogoutButton, Content, Container } from './styles'
 import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Wrapper, Header, LogoutButton, Content, Container } from './styles'
 import { List } from './../../../components/List';
+import { getCards } from '../../../services/cardServices';
 
 export const Main = () => {
   const navigate = useNavigate();
+
+  const [cards, setCards] = useState<void>();
+
+  useEffect(() => {
+    fetchCards();
+  }, [])
+
   const handleLogout = () => {
     for (const key of Object.keys(localStorage)) {
       localStorage.removeItem(key)
@@ -12,16 +21,14 @@ export const Main = () => {
     window.location.href = '/'
 
   }
-  const cardsMock = [
-    {
-      title: "teste cards",
-      content: "My content"
-    },
-    {
-      title: "teste cards",
-      content: "My content"
-    }
-  ]
+
+  const fetchCards = async () => {
+    const cardsResponse = await getCards();
+    console.log(cardsResponse)
+    setCards(cardsResponse)
+  }
+
+
   return (
     <>
       <Wrapper>
@@ -32,10 +39,10 @@ export const Main = () => {
         </Header>
         <Container >
           <Content>
-            <List title="To do" cards={cardsMock}/>
-            <List title="Doing" cards={cardsMock} />
-            <List title="Done" cards={cardsMock} />
-            <List title="Blocked" cards={cardsMock} />
+            <List title="To do" cards={[{ title: "", content: "" }]} />
+            <List title="Doing" cards={[{ title: "", content: "" }]} />
+            <List title="Done" cards={[{ title: "", content: "" }]} />
+            <List title="Blocked" cards={[{ title: "", content: "" }]} />
           </Content>
         </Container>
       </Wrapper>
