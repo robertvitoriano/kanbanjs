@@ -5,18 +5,22 @@ type Props = {
   content: string
 }
 export const Card = ({ title, content }: Props) => {
-  const [{isDragging}, dragRef] =  useDrag({
-    item:{type:'CARD'},
-    collect: monitor => ({
-      isDragging:monitor.isDragging
-    }),
-    type:''
-  })
+	const [{ isDragging }, drag] = useDrag(
+		() => ({
+			type: 'card',
+			item: { card:'card' },
+			collect: (monitor) => ({
+				isDragging: monitor.isDragging(),
+			}),
+		})
+	)
   return (
-    <Container ref = {dragRef}>
+    <>
+    {!isDragging && <Container ref = {drag}>
       <h1>{title}</h1>
       <h1>{content}</h1>
-    </Container>
+    </Container>}
+    </>
 
   )
 }

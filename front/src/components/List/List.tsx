@@ -1,6 +1,5 @@
 import { Card } from './../Card'
 import {Container, Header, AddButton} from './styles'
-import { useDrag } from 'react-dnd';
 
 type ICard = {
   title:string
@@ -12,16 +11,10 @@ type Props = {
   openCreationModal():void
 }
 export const List = ({title, cards, openCreationModal}:Props) =>{
-  const [{isDragging}, dragRef] =  useDrag({
-    item:{type:'List'},
-    collect: monitor => ({
-      isDragging:monitor.isDragging
-    }),
-    type:''
-  })
+
 
   return(
-    <Container ref={dragRef}>
+    <Container >
       <Header>
         {title}
         {title === "To do" && <AddButton onClick={openCreationModal}>+</AddButton>}
