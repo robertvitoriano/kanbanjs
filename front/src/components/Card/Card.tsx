@@ -16,7 +16,9 @@ export const Card = ({ title, content }: Props) => {
 	)
   return (
     <>
-    {!isDragging && <Container ref = {dragRef}>
+    {<Container 
+    isDragging={isDragging}
+    ref = {dragRef}>
       <h1>{title}</h1>
       <h1>{content}</h1>
     </Container>}
