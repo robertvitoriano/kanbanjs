@@ -5,7 +5,7 @@ export class LoginController {
     try{
      const loginUseCase =  loginUseCaseFactory();
      const sessionInfo = await loginUseCase.execute(request.body)
-     return response.json(sessionInfo)
+     return response.status(200).json(sessionInfo)
     }catch(error:any){
       console.error(error)
       return response.status(400).json({error:error.message})

@@ -45,10 +45,8 @@ export const Login = () => {
   const handleLogin = async () => {
     const userService = new UserService()
     setIsLoading(true)
-    await userService.login(username, password)
-    window.location.href =  '/'
-
-
+    const response = await userService.login(username, password)
+    if (response?.status === 200) navigate('/home')
   }
 
   const handleSignIn = async () => {
@@ -76,7 +74,7 @@ export const Login = () => {
               </InputsContainer>
               <ButtonsContainer>
                 <LoginButton onClick={handleLogin} >Login</LoginButton>
-                <SignInButton onClick={handleSignInFormChange}>Sign In</SignInButton>
+                <SignInButton onClick={handleSignInFormChange}>Sign Up</SignInButton>
               </ButtonsContainer>
             </> : isSigningIn ?
               <>
@@ -87,7 +85,7 @@ export const Login = () => {
                   <Input placeholder='enter your password' required value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                 </InputsContainer>
                 <ButtonsContainer>
-                  <SignInButton onClick={handleSignIn} >Sign In</SignInButton>
+                  <SignInButton onClick={handleSignIn} >Sign Up</SignInButton>
                   <ReturnButtonContainer>
                     <ReturnButtonIcon src=""></ReturnButtonIcon>
                     <ReturnButton onClick={handleReturnButton}>Return</ReturnButton>

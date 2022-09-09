@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
-import MUIInput from '@mui/material/Input';
+import MUISelect from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -47,7 +48,24 @@ export const LogoutButton = styled.div`
     color:white;
   }
 `
-export const CardCreationForm = styled.div``
-export const CreationFormInput = styled.div``
-export const CreationFormSelect = styled.select``
+export const CardCreationFormContainer = styled.div`
+  height:calc(100% - 30px);
+  max-width:100%;
+  background-color: white;
+  padding: 15px;
+`
+export const CardCreationForm = styled.div`
+background-color: white;
+width: 100%;
+height:100%;
+border: solid gray 1px;
+border-radius: 15px;
+display: flex;
+justify-content: space-evenly;
+flex-direction: column;
+align-items: center;
+`
+export const CreationFormInput = styled.input``
+export const CreationFormSelect = styled(MUISelect)``
+export const CreationFormOption = styled(MenuItem)``
 export const CreationFormButton =  styled.div``

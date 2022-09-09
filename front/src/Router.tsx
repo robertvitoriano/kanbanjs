@@ -7,20 +7,9 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-
-        {localStorage.getItem('token') ?
-          <>
-            <Route path='/home' element={<Main />} />
-            <Route path='/' element={<Main />} />
-          </>
-          :
-          <>
-            <Route path='/' element={<Login />} />
-            <Route path='/login' element={<Login />} />
-          </>
-        }
-
-
+        <Route path='/home' element={<Main />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Login />} />
       </Routes>
 
     </BrowserRouter>
