@@ -9,12 +9,12 @@ export const Wrapper = styled.div`
   position: relative;
 `
 export const Content = styled.div`
-  background-color:gray;
   opacity: 50%; height: 99%;
   width: 99%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background-color: rgb(219, 241, 253);
 
 
 `
@@ -29,19 +29,20 @@ export const Container = styled.div`
 `
 export const Header = styled.div`
   width: 100vw;
-  background-color: gray;
   display: flex;
   justify-content: flex-end;
   height:8vh;
+  background-color: black;
 `
 export const LogoutButton = styled.div`
   height:100%;
-  background: black;
-  color:gray;
+  color:black;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 5rem;
+  font-weight: bold;
+  background-color: gray;
   &:hover{
     opacity: 50%;
     cursor: pointer;
@@ -51,11 +52,9 @@ export const LogoutButton = styled.div`
 export const CardCreationFormContainer = styled.div`
   height:calc(100% - 30px);
   max-width:100%;
-  background-color: white;
   padding: 15px;
 `
 export const CardCreationForm = styled.div`
-background-color: white;
 width: 100%;
 height:100%;
 border: solid gray 1px;
