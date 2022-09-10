@@ -1,6 +1,8 @@
+import { ReactComponentElement, ReactNode } from 'react'
 import styled,{css} from 'styled-components'
-interface ContainerProps {
-  isDragging:boolean
+interface ContainerProps  {
+  isDragging:boolean,
+  
 }
 export const Container = styled.div`
   background-color: white;
