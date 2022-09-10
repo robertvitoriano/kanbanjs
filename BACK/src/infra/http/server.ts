@@ -4,7 +4,7 @@ import db from './../../../models'
 import { routes } from './routes'
 import cors from 'cors'
 import { SequelizeStorage, Umzug } from 'umzug';
-import { MigrationsRunner } from '../../../migrations/migrationsRunner';
+import { MigrationsRunner } from '../../../migrations/MigrationsRunner';
 dotenv.config();
 
 const app = express()
