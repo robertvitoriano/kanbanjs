@@ -19,7 +19,7 @@ export const List = ({title, cards, openCreationModal}:Props) =>{
         {title}
         {title === "To do" && <AddButton onClick={openCreationModal}>+</AddButton>}
       </Header>
-      {cards.map(({title, content})=><Card title={title} content={content}/>)}
+      {cards.map(({title, content})=><Card key={title} title={title} content={content}/>)}
       
     </Container>
   )

@@ -1,6 +1,6 @@
 export interface ICreateCardDTO {
   id: string,
-  titulo: string,
-  conteudo: string,
-  lista: string
+  title: string,
+  content: string,
+  list: string
 }

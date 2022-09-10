@@ -6,17 +6,17 @@ import {
 
 export type CardAttributes = {
   id: string,
-  titulo: string,
-  conteudo:string,
-  lista:string
+  title: string,
+  content:string,
+  list:string
 };
 
 export default (sequelize: any, DataTypes: any) => {
   class Card extends Model<CardAttributes> implements CardAttributes{
     id!: string;
-    titulo!: string;
-    conteudo!: string;
-    lista!: string;
+    title!: string;
+    content!: string;
+    list!: string;
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -33,16 +33,16 @@ export default (sequelize: any, DataTypes: any) => {
       defaultValue: DataTypes.UUIDV4,
       allowNull: false
     },
-    titulo: {
+    title: {
       type:DataTypes.STRING,
       allowNull: false
     },
-    conteudo: {
+    content: {
       type:DataTypes.STRING(800),
       allowNull: false,
 
     },
-    lista: {
+    list: {
       type:DataTypes.ENUM("ToDo","Doing","Done", "Blocked"),
       allowNull: false
     }
