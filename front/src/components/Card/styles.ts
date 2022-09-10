@@ -14,7 +14,7 @@ export const Container = styled.div`
     background-color: transparent;
     cursor:grabbing;
 
-    p,img,span {
+    p,img,span,h1,h2 {
       opacity: 0;
     }
 

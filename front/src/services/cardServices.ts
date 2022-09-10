@@ -6,4 +6,6 @@ export const getCards = async() =>{
       authorization: String(getToken())
     }
   })
+
+  return response.data
 }

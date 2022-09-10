@@ -9,6 +9,7 @@ export const Card = ({ title, content }: Props) => {
 	const [{ isDragging }, dragRef] = useDrag(
 		() => ({
 			type: 'card',
+      item:{title, content},
 			collect: (monitor) => ({
 				isDragging: monitor.isDragging(),
 			}),
@@ -17,8 +18,8 @@ export const Card = ({ title, content }: Props) => {
 
   const [, dropRef] = useDrop({
     accept:'card',
-    hover(cardBeingDragged, monitor){
-      console.log('is hovering on a card')
+    hover(cardBeingDragged:{title:string, content:string}, monitor){
+      console.log('is hovering on a '+ JSON.stringify(cardBeingDragged.title))
 
     }
   })

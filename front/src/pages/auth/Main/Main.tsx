@@ -20,10 +20,17 @@ import { getCards } from '../../../services/cardServices';
 import { Modal } from '../../../components/Modal';
 import { DndProvider } from "react-dnd";
 import  {HTML5Backend}  from "react-dnd-html5-backend";
+
+interface Card {
+  list:"ToDo" | "Doing"| "Done" | "Blocked"
+  id:string
+  content:string,
+  title:string
+}
 export const Main = () => {
   const navigate = useNavigate();
 
-  const [cards, setCards] = useState<void>();
+  const [cards, setCards] = useState<Card[]>([]);
   const [showCreationModal, setShowCreationModal] = useState<boolean>(false)
   const [ĺistType, setListType] = useState("")
 
@@ -69,10 +76,10 @@ export const Main = () => {
           </Header>
           <Container >
             <Content>
-              <List title="To do" cards={[{ title: "", content: "" }]} openCreationModal={openCreationModal} />
-              <List title="Doing" cards={[{ title: "", content: "" }]} openCreationModal={openCreationModal} />
-              <List title="Done" cards={[{ title: "", content: "" }]} openCreationModal={openCreationModal} />
-              <List title="Blocked" cards={[{ title: "", content: "" }]} openCreationModal={openCreationModal} />
+              <List title="To do" cards={cards.filter((card)=> card.list === "ToDo")} openCreationModal={openCreationModal} />
+              <List title="Doing" cards={cards.filter((card)=> card.list === "Doing")} openCreationModal={openCreationModal} />
+              <List title="Done" cards={cards.filter((card)=> card.list === "Done")} openCreationModal={openCreationModal} />
+              <List title="Blocked" cards={cards.filter((card)=> card.list === "Blocked")} openCreationModal={openCreationModal} />
             </Content>
           </Container>
         </Wrapper>
