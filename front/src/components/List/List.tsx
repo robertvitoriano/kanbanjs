@@ -4,6 +4,7 @@ import {Container, Header, AddButton} from './styles'
 type ICard = {
   title:string
   content:string
+  id:string
 }
 type Props = {
   title:string
@@ -19,7 +20,7 @@ export const List = ({title, cards, openCreationModal}:Props) =>{
         {title}
         {title === "To do" && <AddButton onClick={openCreationModal}>+</AddButton>}
       </Header>
-      {cards.map(({title, content})=><Card key={title} title={title} content={content}/>)}
+      {cards.map(({title, content, id})=><Card key={id} title={title} content={content} id={id}/>)}
       
     </Container>
   )

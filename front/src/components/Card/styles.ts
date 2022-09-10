@@ -1,7 +1,8 @@
 import { ReactComponentElement, ReactNode } from 'react'
 import styled,{css} from 'styled-components'
 interface ContainerProps  {
-  isDragging:boolean,
+  isDragging:boolean
+  isBeingHovered:boolean
   
 }
 export const Container = styled.div`
