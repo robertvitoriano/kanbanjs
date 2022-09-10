@@ -9,7 +9,6 @@ export const Card = ({ title, content }: Props) => {
 	const [{ isDragging }, dragRef] = useDrag(
 		() => ({
 			type: 'card',
-			item: { card:'card', type:'card' },
 			collect: (monitor) => ({
 				isDragging: monitor.isDragging(),
 			}),
